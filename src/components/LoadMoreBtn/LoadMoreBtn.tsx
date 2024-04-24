@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import css from "./LoadMoreBtn.module.css";
+import { LoadMoreProps } from "./LoadMoreBtn.types";
 
-const LoadMoreBtn = ({ loadMore }) => {
-  const [isLoading, setIsLoading] = useState(false);
+const LoadMoreBtn:React.FC<LoadMoreProps> = ({ loadMore }) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleClick = async () => {
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = async () => {
     setIsLoading(true);
     try {
       await loadMore();
