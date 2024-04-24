@@ -4,4 +4,5 @@ export interface PhotosProps {
     urls: {
         [key:string]:string;
     };
+    alt_description: string;
 }
