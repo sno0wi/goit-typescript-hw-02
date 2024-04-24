@@ -1,6 +1,7 @@
 import css from "./ImageCard.module.css";
+import { CardProps } from "./ImageCard.types";
 
-const ImageCard = ({ img, handleSelectPhoto }) => {
+const ImageCard:React.FC<CardProps> = ({ img, handleSelectPhoto }) => {
   return (
     <div className={css.gallery_item}>
       <img

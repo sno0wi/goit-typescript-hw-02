@@ -1,22 +1,24 @@
 import { useEffect, useState } from "react";
 import { requestImg } from "../../services/api.js";
-import ImageGallery from "../ImageGallery/ImageGallery.jsx";
-import SearchBar from "../SearchBar/SearchBar.jsx";
-import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn.jsx";
-import ErrorMessage from "../ErrorMessage/ErrorMessage.jsx";
-import Loader from "../Loader/Loader.jsx";
-import ImageModal from "../ImageModal/ImageModal.jsx";
+import ImageGallery from "../ImageGallery/ImageGallery";
+import SearchBar from "../SearchBar/SearchBar";
+import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import Loader from "../Loader/Loader";
+import ImageModal from "../ImageModal/ImageModal";
+
+import { PhotosProps} from './App.types'
 import "./App.css";
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [photos, setPhotos] = useState(null);
-  const [page, setPage] = useState(1);
-  const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [selectedImg, setSelectedImg] = useState(null);
-  const [totalPages, setTotalPages] = useState(0);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [photos, setPhotos] = useState<PhotosProps[] | null>(null);
+  const [page, setPage] = useState<number>(1);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedImg, setSelectedImg] = useState<PhotosProps | null>(null);
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -48,13 +50,13 @@ function App() {
     setIsOpen(true);
   };
 
-  const handleSubmit = (query) => {
+  const handleSubmit = (query:string) => {
     setPhotos(null);
     setPage(1);
     setSearchTerm(query);
   };
 
-  const handleSelectPhoto = (photo) => {
+  const handleSelectPhoto = (photo:PhotosProps) => {
     setSelectedImg(photo);
     openModal();
   };

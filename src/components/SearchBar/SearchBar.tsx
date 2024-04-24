@@ -1,15 +1,16 @@
-import { useRef } from "react";
+import { FormEvent, useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { IoIosSearch } from "react-icons/io";
 import css from "./SearchBar.module.css";
+import { HandleSubmitProps } from "./SearchBar.types";
 
-const SearchBar = ({ handleSubmit }) => {
-  const inputRef = useRef(null);
+const SearchBar = ({ handleSubmit }: HandleSubmitProps) => {
+  const inputRef = useRef <HTMLInputElement>(null);
 
-  const onHandleSubmit = (event) => {
+  const onHandleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const searchTerm = inputRef.current.value;
-    if (searchTerm === "") {
+    const searchTerm = inputRef.current?.focus();
+    if (searchTerm === undefined) {
       toast("Please enter a search term.");
       return;
     }
