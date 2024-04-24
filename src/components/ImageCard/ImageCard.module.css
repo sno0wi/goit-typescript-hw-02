@@ -1,0 +1,15 @@
+.gallery_item {
+    border: 1px solid black;
+    display: flex;
+}
+
+.gallery_img {
+    width: 360px;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery_item:hover .gallery_img {
+    transform: scale(1.1);
+}
