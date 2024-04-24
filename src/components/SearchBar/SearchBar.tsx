@@ -5,13 +5,13 @@ import css from "./SearchBar.module.css";
 import { HandleSubmitProps } from "./SearchBar.types";
 
 const SearchBar = ({ handleSubmit }: HandleSubmitProps) => {
-  const inputRef = useRef <HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onHandleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const searchTerm = inputRef.current?.value;
     if (searchTerm === undefined) {
-      toast("Please enter a search term.");
+      toast.error("Please enter a search term.");
       return;
     }
     handleSubmit(searchTerm);

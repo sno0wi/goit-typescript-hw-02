@@ -50,17 +50,17 @@ function App() {
     setIsOpen(true);
   };
 
-  const handleSubmit = (query:string) => {
+  const handleSubmit = (query:string):void => {
     setPhotos(null);
     setPage(1);
     setSearchTerm(query);
   };
 
-  const handleSelectPhoto = (photo:PhotosProps) => {
+  const handleSelectPhoto = (photo:PhotosProps):void => {
     setSelectedImg(photo);
     openModal();
   };
-  const closeModal = () => {
+  const closeModal = ():void => {
     setIsOpen(false);
   };
 
