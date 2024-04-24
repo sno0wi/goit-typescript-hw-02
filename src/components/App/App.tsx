@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { requestImg } from "../../services/api.js";
+import { requestImg } from "../../services/api";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import SearchBar from "../SearchBar/SearchBar";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";

@@ -9,7 +9,7 @@ const SearchBar = ({ handleSubmit }: HandleSubmitProps) => {
 
   const onHandleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const searchTerm = inputRef.current?.focus();
+    const searchTerm = inputRef.current?.value;
     if (searchTerm === undefined) {
       toast("Please enter a search term.");
       return;
